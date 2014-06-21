@@ -12,4 +12,4 @@
 # Python related extensions
 #=========================================================================
 *.pyc
-.ipnb_checkpoints/*
+.ipnb_checkpoints

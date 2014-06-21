@@ -1,6 +1,7 @@
 ## Contents
 
 **Dynamic_systems** 
+* **1st_ODE**: numerical solution to a first oder, non-linear differential equation.
 
 **Graph_theory** 
 
