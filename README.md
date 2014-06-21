@@ -1,3 +1,6 @@
+This is a personal repository. If you want to see the examples just 
+use [this link](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks/)
+
 ## Contents
 
 **Dynamic_systems** 
