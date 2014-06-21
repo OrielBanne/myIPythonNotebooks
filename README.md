@@ -12,6 +12,8 @@ use [this link](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks
 
 **Optimization**
 
+* [linear_regression](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks/blob/master/Optimization/linear_regression.ipynb): Fitting to polynomial function. 
+
 **Stochastic_systems** 
 
 * [Normal_distribution](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks/blob/master/Stochastic_systems/Normal_distribution.ipynb): demonstration that the sum of 2 normally distributed random variables result in a new random variable whose mean is the sum of the means, and variance the sum of the variances of the individual random variables.
