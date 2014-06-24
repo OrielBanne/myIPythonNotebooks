@@ -17,3 +17,5 @@ use [this link](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks
 **Stochastic_systems** 
 
 * [Normal_distribution](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks/blob/master/Stochastic_systems/Normal_distribution.ipynb): demonstration that the sum of 2 normally distributed random variables result in a new random variable whose mean is the sum of the means, and variance the sum of the variances of the individual random variables.
+
+* [Fit_real_histogram](http://nbviewer.ipython.org/github/JoseGuzman/myIPythonNotebooks/blob/master/Stochastic_systems/Fit_real_histogram.ipynb): how to adapt a normalized fitting to the histograms of events.
