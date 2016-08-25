@@ -22,4 +22,4 @@ use [this link](http://nbviewer.jupyter.org/github/JoseGuzman/myIPythonNotebooks
 
 **Machine Learning** 
 
-* [KCM algorithm](http://nbviewer.jupyter.org/github/JoseGuzman/myIPythonNotebooks/blob/master/MachineLearning/KCM.ipynb): K-means algorithm. 
+* [KCM algorithm](http://nbviewer.jupyter.org/github/JoseGuzman/myIPythonNotebooks/blob/master/MachineLearning/KMC.ipynb): K-means clustering algorithm. 
