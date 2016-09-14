@@ -1,0 +1,5 @@
+Age, Slicing, Slicing temp, Storage, Storage temp, Storage time, Recovery, Recovery temp, Recovery time, Recording
+21,  Suc120,  0,            Suc120,            37,           45, ACSF, 21, 15, 1
+21,  Suc120,  0,            Suc120,            37,           45, NMDG, 21, 15, 1
+21,  NMDG,  0,              NMDG,            37,           15, ACSF, 21, 15, 1
+21,  NMDG,  0,              NMDG,            37,           15, ACSF, 21, 15, 0
