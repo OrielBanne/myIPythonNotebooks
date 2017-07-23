@@ -120,7 +120,7 @@ linear = [
 # Plot data and linear regression together, 
 # and output table
 #-------------------------------------------------------------------------
-def plot_linear_fit(xdata, ydata, color = None, title = None, ax = None):
+def plot_linearfit(xdata, ydata, color = None, title = None, ax = None):
     """
     Plots the linear fit togehter with the 95% confident intervals 
     
@@ -184,7 +184,7 @@ def plot_linear_fit(xdata, ydata, color = None, title = None, ax = None):
 
     print AsciiTable(infostats).table
 
-def plot_linearfit(data, color = None, title = None, ax = None ):
+def plot_motif(data, color = None, title = None, ax = None ):
     """
     Fit linearly the data from the pairs of synapses in all possible
     two-edges motifs (e.g. bidirectional, convergent, divergent and
@@ -204,7 +204,7 @@ def plot_linearfit(data, color = None, title = None, ax = None ):
         ax = plt.gca() # if not give, get current axis
     
     xdata, ydata = np.array ( zip(*data) )
-    plot_linear_fit(xdata, ydata, color, title, ax)
+    plot_linearfit(xdata, ydata, color, title, ax)
 
     ax.plot(xdata, ydata, 'o', markersize = 5, color = color)
     
@@ -225,16 +225,16 @@ def plot_linearfit(data, color = None, title = None, ax = None ):
 
 # plot linear regression of four motif types
 fig, ax2D = plt.subplots(2,2)
-plot_linearfit(data = bidirectional, 
+plot_motif(data = bidirectional, 
     color = 'brown', title='Bidirectional motifs', ax = ax2D[0,0])
 
-plot_linearfit(data = convergent, 
+plot_motif(data = convergent, 
     color = 'darkgreen', title='Convergent motifs', ax = ax2D[0,1])
 
-plot_linearfit(data = divergent, 
+plot_motif(data = divergent, 
     color = 'royalblue', title='Divergent motifs', ax = ax2D[1,0])
 
-plot_linearfit(data = linear, 
+plot_motif(data = linear, 
     color = 'm', title='Linear motifs', ax = ax2D[1,1])
 
 
