@@ -3,7 +3,7 @@ plot_relation_motifs.py
 
 Jose Guzman, sjm.guzman@gmail.com
 Date: Sat Jul 22 15:36:05 CEST 2017
-Last change: Sun Jul 23 10:34:46 CEST 2017
+Last change: Tue Jul 25 10:19:07 CEST 2017
 
 Plots the relation between synaptic weights of all possible 2-edge
 connectivity motifs found between CA3 neurons. For example, for a 
@@ -39,14 +39,13 @@ from terminaltables import AsciiTable
 #-------------------------------------------------------------------------- 
 
 # 6 bidirectional motifs: 12 synapses
-# IDs  (51, 53),(82, 83), (91,95), (92,96), (128, 131), (129, 133)
 bidirectional = [
-    (15.7548, 28.2989),
-    (11.153, 34.7268),
-    (6.77177, 32.841),
-    (31.1624, 34.616),
-    (7.56688, 6.10144),
-    (6.32708, 7.82399)
+    (15.7548, 28.2989), # (51, 53)
+    (11.153, 34.7268),  # (82, 83)
+    (6.77177, 32.841),  # (91, 95)
+    (31.1624, 34.616),  # (92, 96)
+    (7.56688, 6.10144), # (128, 131)
+    (6.32708, 7.82399)  # (129, 133)
 ]
 
 # 10 convergent motifs: 20 synapses 
@@ -120,9 +119,9 @@ linear = [
 # Plot data and linear regression together, 
 # and output table
 #-------------------------------------------------------------------------
-def plot_linearfit(xdata, ydata, color = None, title = None, ax = None):
+def plot_linear_fit(xdata, ydata, color = None, title = None, ax = None):
     """
-    Plots the linear fit togehter with the 95% confident intervals 
+    Plots the linear fit togheter with the two-side 95% confident intervals 
     
     Parameters
     ----------
@@ -169,6 +168,7 @@ def plot_linearfit(xdata, ydata, color = None, title = None, ax = None):
     ax.plot(xfit, yfit, lw =2 , color = color)
     ax.plot(xfit, lower_conf, '--', lw = 1, color = color)
     ax.plot(xfit, upper_conf, '--', lw = 1, color = color)
+    ax.fill_between(xfit,upper_conf,lower_conf,  color = color, alpha=.1)
 
     ax.text(28, 40,'P = %2.4f'%pval, color = color)
 
@@ -184,7 +184,7 @@ def plot_linearfit(xdata, ydata, color = None, title = None, ax = None):
 
     print AsciiTable(infostats).table
 
-def plot_motif(data, color = None, title = None, ax = None ):
+def plot_linearfit(data, color = None, title = None, ax = None ):
     """
     Fit linearly the data from the pairs of synapses in all possible
     two-edges motifs (e.g. bidirectional, convergent, divergent and
@@ -204,7 +204,7 @@ def plot_motif(data, color = None, title = None, ax = None ):
         ax = plt.gca() # if not give, get current axis
     
     xdata, ydata = np.array ( zip(*data) )
-    plot_linearfit(xdata, ydata, color, title, ax)
+    plot_linear_fit(xdata, ydata, color, title, ax)
 
     ax.plot(xdata, ydata, 'o', markersize = 5, color = color)
     
@@ -225,23 +225,22 @@ def plot_motif(data, color = None, title = None, ax = None ):
 
 # plot linear regression of four motif types
 fig, ax2D = plt.subplots(2,2)
-plot_motif(data = bidirectional, 
+plot_linearfit(data = bidirectional, 
     color = 'brown', title='Bidirectional motifs', ax = ax2D[0,0])
 
-plot_motif(data = convergent, 
+plot_linearfit(data = convergent, 
     color = 'darkgreen', title='Convergent motifs', ax = ax2D[0,1])
 
-plot_motif(data = divergent, 
+plot_linearfit(data = divergent, 
     color = 'royalblue', title='Divergent motifs', ax = ax2D[1,0])
 
-plot_motif(data = linear, 
+plot_linearfit(data = linear, 
     color = 'm', title='Linear motifs', ax = ax2D[1,1])
 
 
-# Fine-tune figure; 
+# Fine-tune figure 
 # hide x ticks and label for top plots 
 plt.setp([axis.get_xticklabels() for axis in ax2D[0, :]], visible=False)
-#plt.setp([axis.set_xlabel('-- ') for axis in ax2D[0, :]], )
 
 # hide  y ticks for right plots
 plt.setp([axis.get_yticklabels() for axis in ax2D[:, 1]], visible=False)
