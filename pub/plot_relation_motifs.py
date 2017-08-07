@@ -235,7 +235,7 @@ plot_linearfit(data = divergent,
     color = 'royalblue', title='Divergent motifs', ax = ax2D[1,0])
 
 plot_linearfit(data = linear, 
-    color = 'm', title='Linear motifs', ax = ax2D[1,1])
+    color = 'purple', title='Linear motifs', ax = ax2D[1,1])
 
 
 # Fine-tune figure 
