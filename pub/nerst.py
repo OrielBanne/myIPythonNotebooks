@@ -4,7 +4,7 @@ nerst.py
 Jose Guzman, sjm.guzman@gmail.com
 Created: Fri Apr 29 08:04:57 CEST 2016
 
-Solution of the Nerst equation for different chloride conditions.
+Solves the Nerst equation for different chloride conditions.
 
 """
 from math import log
