@@ -1,0 +1,10 @@
+// Inhibitory to excitatory distances
+// intersomatic distance (first columnt) versus probability of
+// connections between inhibitory and excitatory neurons (in percentage)
+0.000000 27.058824
+50.000000 29.279279
+100.000000 23.423423
+150.000000 21.600000
+200.000000 17.073171
+250.000000 7.142857
+300.000000 0.000000
