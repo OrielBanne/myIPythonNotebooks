@@ -9,6 +9,7 @@ Solution of the Nerst equation for different chloride conditions.
 """
 from math import log
 from terminaltables import AsciiTable 
+import numpy as np
 
 def nerst(t, oution, inion, z):
     """ 
@@ -70,6 +71,19 @@ if __name__ == '__main__':
     table = AsciiTable(data)
     print table.table
 
+    import matplotlib.pyplot as plt
+    x = np.arange(0.1, 50.0, 0.01)
+    k = lambda x:58*np.log10(x/100.) # K-nerst equation
+    y = k(x)
+    plt.semilogx(x,y, color='royalblue')
+    plt.vlines(2.5, -120, k(2.5), linestyle=':', color='brown')
+    plt.hlines(k(2.5), 0.01, 2.5, linestyle=':', color='brown')
+    plt.ylim(ymin=-120)
+    plt.xlim(xmin=0.1)
+
+    plt.ylabel('Resting membrane potential (mV)')
+    plt.xlabel('Log [K$^+$]')
+    plt.show()
 
 
 
