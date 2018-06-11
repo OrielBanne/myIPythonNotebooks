@@ -6,10 +6,10 @@ from 3D coordinates and calculates their speed.
 
 Authors:
 Jose Guzman, sjm.guzman@gmail.com
-Joshua Bagley, 
-Bajay Sunanjay, 
+Joshua Bagley, sunanjay@imba.oeaw.ac.at
+Bajay Sunanjay, joshua.bagley@imba.oeaw.ac.at
 
-Last change:Mon Jun 11 10:07:12 CEST 2018
+Last change: Mon Jun 11 17:58:12 CEST 2018
 """
 
 from __future__ import division
@@ -99,18 +99,81 @@ class Particle(object):
         return self.samples
         
 
-class CSVReader(object):
+class CVSReader(object):
     """
-    Reads a cvs file containing 3D coordinates
+    Reads a cvs file containing 3D coordinates to returns particle objects
     """
-    def __init__(self, filename):
+    def __init__(self, filename=None):
         """
         An object to obtain speed parameters from different particles in 
-        in a csv file
+        in a csv file. It will create a return Particles objects.
+
+        Arguments:
+        ----------
+        filename -- (str) the path containing the csv file to read
+
+        Usage:
+        ------
+
+        >>> from read_migration import reader
+        >>> reader('./data/)
+        >>> len(reader) # number of particles (e.g. 3)
+        >>> a, b, c = reader()
+        >>> a.speed # see Particle objects for examples
         """
-        self.fname = filename
-        df = pd.read_csf(filename, skiprows=2)
-        self.particles = df['TrackID'].unique()
+        self.filename = list() 
+        self.particles = list()
+
+        if filename is not None:
+            self.filename.append(filename)
+            mydf = pd.read_csv(filename, skiprows=2)
+            ids = mydf['TrackID'].unique()
+            self.particles = [Particle(df = mydf, ID=i) for i in ids]
+
+    def __call__(self, filename=None):
+        """
+        Return Particles objects form the file
+
+        Arguments:
+        ----------
+        filename -- (str) the path containing the csv file to read
+        """
+        if filename is None:
+            return self.particles
+        else:
+            # update attributes
+            self.filename = filename
+            mydf = pd.read_csv(filename, skiprows=2)
+            ids = mydf['TrackID'].unique()
+            self.particles = [Particle(df = mydf, ID=i) for i in ids]
+            return self.particles
+
+    def __add__(self, filename):
+        """
+        add two CVSReader objects
+        """
+        myreader = CVSReader()
+        myreader.filename.append(self.filename)
+
+        # particles attribute
+        myreader.particles = self.particles
+        mydf = pd.read_csv(filename, skiprows=2)
+        ids = mydf['TrackID'].unique()
+        myreader.particles += [Particle(df = mydf, ID=i) for i in ids]
+
+        return(myreader)
         
+
+    def __len__(self):
+        """
+        Returns the number of Particle objects 
+    
+        """
+        if self.filename is None:
+            return 0
+        else:
+            return len(self.particles)
+            
+reader = CVSReader(filename = None)
         
 
