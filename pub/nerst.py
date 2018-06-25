@@ -68,6 +68,10 @@ if __name__ == '__main__':
     ECl = nerst(t = 20, oution=133.5, inion=44, z=-1)
     data.append(['Espinoza et al., **', ECl])
 
+    # data for brain organoids  
+    ECl = nerst(t = 20, oution=133.5, inion=28, z=-1)
+    data.append(['Guzman et al., **', ECl])
+
     table = AsciiTable(data)
     print table.table
 
