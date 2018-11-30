@@ -42,7 +42,7 @@ def nerst(t, oution, inion, z):
     >>> -66.294937
 
     """
-    K = 273.16 + t # transform in kelvin
+    K = 273.15 + t # transform in kelvin
     volt = ((8.31451*K)/(z*96485.3))*log(oution/inion) 
     return(volt*1000) # in mV
 
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     ECl = nerst(t = 20, oution=133.5, inion=44, z=-1)
     data.append(['Espinoza et al., **', ECl])
 
-    # data for brain organoids  
+    # data for brain organoids  (for Cl)
     ECl = nerst(t = 20, oution=133.5, inion=28, z=-1)
     data.append(['Guzman et al., **', ECl])
 
