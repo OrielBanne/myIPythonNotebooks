@@ -1,3 +1,7 @@
+  h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+
+
+
 This is a personal repository. If you want to see the examples just 
 use [this link](http://nbviewer.jupyter.org/github/JoseGuzman/myIPythonNotebooks/)
 
